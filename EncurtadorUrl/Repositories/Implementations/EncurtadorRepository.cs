@@ -28,5 +28,10 @@ namespace EncurtadorUrl.Repositories.Implementations
         {
             return _context.Encurtadors.Select(e => e.shortUrl).ToList();
         }
+
+        public string? GetOriginalUrl(string urlEncurtada)
+        {
+            return _context.Encurtadors.FirstOrDefault(e => e.shortUrl == urlEncurtada)?.link;
+        }
     }
 }
