@@ -21,7 +21,7 @@ namespace EncurtadorUrl.Controllers
               string shortLink = _encurtadorService.CreateShortLink(link);
               var request = HttpContext.Request;
               var fullUrl = $"{request.Scheme}://{request.Host}";
-              return Ok(fullUrl+"//"+shortLink);
+              return Ok(fullUrl+"/"+shortLink);
         }
 
         [HttpGet]
