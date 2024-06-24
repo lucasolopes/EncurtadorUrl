@@ -13,14 +13,21 @@ namespace EncurtadorUrl.Repositories.Implementations
             _context = context;
         }
         
-        public void AddShorLink(string link, string shortLink, DateTime dateTime)
+        public void AddShorLink(string link, string shortLink, DateTime dateTime, DateTime dataExpiracao)
         {
             _context.Add(new EncurtadorUrl.Models.Entities.Encurtador
             {
                 link = link,
                 shortUrl = shortLink,
-                dateTime = dateTime
+                dateTime = dateTime,
+                dataExpiracao = dataExpiracao
             });
+            _context.SaveChanges();
+        }
+
+        public void DeleteExpiredUrls()
+        {
+            _context.Encurtadors.RemoveRange(_context.Encurtadors.Where(e => e.dataExpiracao < DateTime.UtcNow));
             _context.SaveChanges();
         }
 

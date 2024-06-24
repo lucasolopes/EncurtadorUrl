@@ -18,7 +18,7 @@ namespace EncurtadorUrl.Models.Entities
         public DateTime dateTime { get; set; }
 
         [Required]
-        public DateTime DataExpiracao { get; set; }
+        public DateTime dataExpiracao { get; set; }
 
 
     }

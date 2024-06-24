@@ -19,9 +19,14 @@ namespace EncurtadorUrl.Services.Implementations
          public string CreateShortLink(string link)
          {
              string shortLink = generateShortLink(link);
-             _encurtadorRepository.AddShorLink(link, shortLink, DateTime.Now);
+             _encurtadorRepository.AddShorLink(link, shortLink, DateTime.Now,  DateTime.UtcNow.AddDays(1) );
              return shortLink;
          }
+
+        public void DeleteExpiredUrls()
+        {
+             _encurtadorRepository.DeleteExpiredUrls();
+        }
 
         public List<string> GetShortLinks()
         {
