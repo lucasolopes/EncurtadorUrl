@@ -28,6 +28,11 @@ namespace EncurtadorUrl.Services.Implementations
             return _encurtadorRepository.GetAll();
         }
 
+        public string? ObterUrlOriginal(string urlEncurtada)
+        {
+            return _encurtadorRepository.GetOriginalUrl(urlEncurtada);
+        }
+
         private string generateShortLink(string link)
          {
 

@@ -4,5 +4,6 @@
     {
         string CreateShortLink(string link);
         List<string> GetShortLinks();
+        string? ObterUrlOriginal(string urlEncurtada);
     }
 }
